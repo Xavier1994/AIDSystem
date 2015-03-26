@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     if user_signed_in?
-      if User.count==1 && User.admin==nil
+      if User.count==1 && current_user.admin==nil
         @a=User.first
         @a.admin=true
         @a.save
